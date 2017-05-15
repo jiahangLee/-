@@ -1,6 +1,4 @@
 ﻿monster 怪物
-strange Ä°ÉúÈË
-react   ·´Ó¦
-jsx     中国
-jp      日本
-hk      英国
+strange 陌生人
+react   反应
+
