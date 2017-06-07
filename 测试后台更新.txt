@@ -1,0 +1,53 @@
+大数据平台应用层后台运维手册
+
+启动后台应用
+cd 到/root/zxga_background目录
+执行：nohup java -jar analyse-service-1.0-SNAPSHOT.jar --spring.config.location=./application.yml --spring.profiles.active=swagger-ui,dev-mysql &
+
+查询后台应用进程
+ps -ef|grep java
+找到java -jar analyse-service-1.0-SNAPSHOT.jar --spring.config.location=./application.yml --spring.profiles.active=swagger-ui,dev-mysql 对应的pid
+
+比如：
+root     27392 26912  2 15:26 pts/4    00:00:59 java -jar analyse-service-1.0-SNAPSHOT.jar --spring.config.location=./application.yml --spring.profiles.active=swagger-ui,dev-mysql    pid就是27392
+
+停止后台应用
+kill -9  pid	比如：kill -9  27392
+
+
+后台jar包更新目录
+cd /root/zxga_background/ 找到 analyse-service-1.0-SNAPSHOT.jar  以后后台更新会议analyse-service-1.0-SNAPSHOT.jar 的方式更新
+
+
+
+
+
+nohup java -jar analyse-model-0.0.1-SNAPSHOT.jar --spring.config.location=./application.yml --spring.profiles.active=prod,calc &
+
+export CALC_DAY=2017-02-01
+ nohup  java -jar  analyse-model-0.0.1-SNAPSHOT.jar --spring.config.location=./application.yml --spring.profiles.active=prod,calc  &
+
+
+
+
+
+现场前端更新：
+
+正常更新：
+静态文件：直接替换，不需要重启。
+/opt/apache-tomcat-8.0.32/webapps/gags
+
+前台重启：
+/opt/apache-tomcat-8.0.32/bin/startup.sh
+
+前台关闭：
+ps -ef|grep tomcat
+kill -9 进程id
+
+启动日志：
+tail -f /opt/apache-tomcat-8.0.32/logs/*.out
+
+
+10.254.15.61	gabdos.com
+
+redis-cli   keys *
