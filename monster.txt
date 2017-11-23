@@ -5,8 +5,3 @@ ufeff     	非法符号
 identical	一样的
 template	模板
 value		值
-true            
-false
-increase	增加
-decrease
-	
